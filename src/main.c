@@ -12,7 +12,6 @@
 #include "UART.h"
 #include "servoFunctionality.h"
 #include "rtcFunctionality.h"
-#include "rfid.h"
 #include <string.h>
 #include <stdio.h>
 
@@ -47,22 +46,8 @@ int main(void) {
 	/*
 	-------------------
 	*/
-
-
-	printf("Application Starting...\n");
-
-	uint8_t rfid_id[4];
-
-	rc522_init();
 	
 	while(1) {
-
-		if(rc522_checkCard(rfid_id)) {
-			char data[20];
-			sprintf(data,"0x%x 0x%x 0x%x 0x%x",rfid_id[0],rfid_id[1],rfid_id[2],rfid_id[3]);
-			for(int i = 0; i < 1000000; i++);
-			printf("Card number is: ", rfid_id[0]);
-		}
 
 	}
 }
