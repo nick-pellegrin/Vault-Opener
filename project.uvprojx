@@ -454,6 +454,26 @@
               <FileType>1</FileType>
               <FilePath>.\src\UART_printf.c</FilePath>
             </File>
+            <File>
+              <FileName>rfid.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\src\rfid.c</FilePath>
+            </File>
+            <File>
+              <FileName>rfid.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\rfid.h</FilePath>
+            </File>
+            <File>
+              <FileName>SPI.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\src\SPI.c</FilePath>
+            </File>
+            <File>
+              <FileName>SPI.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\SPI.h</FilePath>
+            </File>
           </Files>
         </Group>
         <Group>
