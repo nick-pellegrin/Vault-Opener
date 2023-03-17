@@ -12,17 +12,15 @@
 #include "UART.h"
 #include "servoFunctionality.h"
 #include "rtcFunctionality.h"
+#include "EXTI.h"
 #include <string.h>
 #include <stdio.h>
 
 
 int main(void) {	
-	/*
-	---------LAB 2----------
-	*/
-	
+
 	System_Clock_Init(); // Switch System Clock = 80 MHz
-		
+	
 	RTC_Init();
 	RTC_Alarm_Enable();
 	RTC_Set_Alarm();
@@ -30,24 +28,25 @@ int main(void) {
 	//DisableAlarmA_EnableAlarmB();
 	//DisableAlarmB_EnableAlarmA();
 	
-	/*
-	---------LAB 4----------
-	*/
-	
 	Init_USARTx(2);
-
-	/*
-	---------LAB 6----------
-	*/
 	
 	SERVO_Pin_Init();
 	TIM5_CH1_Init();
+	EXTI_Init();	
 	
 	/*
 	-------------------
 	*/
+	printf("Starting code...");
 	
 	while(1) {
-
+		
+		printf("%d\n", isAuthorized);
+		
+		if (isAuthorized) {
+			printf("Working\n");
+			isAuthorized = 0;
+		}
+		for(int i=0; i < 10000000; i++);
 	}
 }
