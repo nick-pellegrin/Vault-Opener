@@ -3,7 +3,7 @@
         {
             "name": "Target 1",
             "includePath": [
-                "c:\\Users\\jakeg\\OneDrive\\Documents\\153b\\lab4\\L4A\\src"
+                "c:\\Users\\jakeg\\OneDrive\\Documents\\153b\\final_project\\src"
             ],
             "defines": [
                 "__alignof__(x)=",
