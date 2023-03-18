@@ -1,12 +1,8 @@
 #include "EXTI.h"
-#include <string.h>
-#include <stdio.h>
 
 volatile int isAuthorized = 0;
 
 void EXTI_Init(void) {
-	//RCC->AHB2ENR |= RCC_AHB2ENR_GPIOAEN;	
-
 	// Initialize User Button
 	GPIOA->MODER &= ~GPIO_MODER_MODE1;
 	GPIOA->PUPDR &= ~GPIO_PUPDR_PUPD1;
@@ -35,7 +31,7 @@ void EXTI1_IRQHandler(void) {
 		EXTI->PR1 |= EXTI_PR1_PIF1;
 	
 		// Define behavior that occurs when interrupt occurs
-		if (GPIOA->IDR & GPIO_IDR_ID1)
-			isAuthorized = 1;						// arduino gives random noise so this fixes that issue
+		if (GPIOA->IDR & GPIO_IDR_ID1)		// arduino gives random noise so this fixes that issue
+			isAuthorized = 1;						
 	}
 }

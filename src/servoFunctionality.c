@@ -14,9 +14,7 @@ void SERVO_Pin_Init(){
 
 void SERVO_Init() {
 	Servo_Move_Right_90_Degree();
-	//for(int i=0; i<10000; i++);
 	Servo_Move_Right_90_Degree();
-	//for(int i=0; i<10000; i++);
 	Servo_Move_Right_90_Degree();
 
 }

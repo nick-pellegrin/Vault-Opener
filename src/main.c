@@ -41,29 +41,33 @@ int main(void) {
 		
 		if (isAuthorized) {
 			printf("ACCESS REQUESTED. ALLOW ACCESS? (Y/N)\n");
+
 			while (scanf("%c", &rxByte) == 0);
-			if (rxByte == 'Y'){
+
+			if (rxByte == 'Y') {
 				Get_RTC_Calendar(strTime, strDate);
+
 				char timeoutSecondsStr[3];
-				timeoutSecondsStr[0] = strTime[6];
-				timeoutSecondsStr[1] = strTime[7];
-				timeoutSecondsStr[2] = '\0'; // Null-terminate the string
+				timeoutSecondsStr[0] = strTime[6]; timeoutSecondsStr[1] = strTime[7]; timeoutSecondsStr[2] = '\0'; // Null-terminate the string
 				int timeoutSeconds = atoi(timeoutSecondsStr);
+
 				RTC_Set_Alarm((timeoutSeconds + 15) % 60);
 				EnableAlarmA();
+
 				printf("\n\tACCESS GRANTED.\t---\tEntry logged at: %s on %s\n\n\n\n", strTime, strDate);
 				Servo_Move_Center();
-				while(isTimeoutComplete == 0);
+
+				while(!isTimeoutComplete);
 				DisableAlarmA();
 			} 
 			
-			else if (rxByte == 'N'){
+			else if (rxByte == 'N') {
 				Get_RTC_Calendar(strTime, strDate);
 				printf("\n\tACCESS DENIED.\t---\tEntry logged at: %s on %s\n\n\n\n", strTime, strDate);
 			} 
 			
 			else {
-				printf("\nWARNING: Please enter a valid character. Rescan card and try again.\n\n\n\n");
+				printf("\n\tWARNING: Please enter a valid character. Rescan card and try again.\n\n\n\n");
 			}
 			
 			isAuthorized = 0;
