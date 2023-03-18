@@ -6,7 +6,7 @@ struct _FILE {
 	int dummy;
 };
 
-// We have to define FILE if prinf is used
+// We have to define FILE if printf is used
 FILE __stdout;
 FILE __stdin;
  

@@ -12,12 +12,21 @@ void SERVO_Pin_Init(){
 	GPIOA->PUPDR &= ~GPIO_PUPDR_PUPD0;
 }
 
+void SERVO_Init() {
+	Servo_Move_Right_90_Degree();
+	//for(int i=0; i<10000; i++);
+	Servo_Move_Right_90_Degree();
+	//for(int i=0; i<10000; i++);
+	Servo_Move_Right_90_Degree();
+
+}
+
 void TIM5_CH1_Init(){
 	RCC->APB1ENR1 |= RCC_APB1ENR1_TIM5EN;
 
 	TIM5->CCER |= TIM_CCER_CC1E;				
 	TIM5->CR1 &= ~TIM_CR1_DIR;				
-	TIM5->PSC = 39;								
+	TIM5->PSC = 799;								
 	TIM5->ARR = 1999;							
 	TIM5->CCMR1 &= ~TIM_CCMR1_OC1M;
 	TIM5->CCMR1 |= TIM_CCMR1_OC1M_1;			

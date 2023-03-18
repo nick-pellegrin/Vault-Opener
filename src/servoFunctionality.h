@@ -5,6 +5,8 @@
 
 void SERVO_Pin_Init();
 
+void SERVO_Init();
+
 void TIM5_CH1_Init();
 
 void Servo_Move_Left_90_Degree();

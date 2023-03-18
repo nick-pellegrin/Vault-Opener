@@ -1,21 +1,28 @@
 #include "rtcFunctionality.h"
+#include "servoFunctionality.h"
+#include <stdio.h>
 
-void RTC_Set_Alarm(void) {
+extern volatile int isTimeoutComplete = 0;
+
+void RTC_Set_Alarm(int alarmSecondsTime) {
+	
+	uint32_t secondTens = alarmSecondsTime / 10;
+	uint32_t secondUnits = alarmSecondsTime % 10;
+	
 	RTC_Disable_Write_Protection();
 	
 	RTC->CR &= ~RTC_CR_ALRAE;
-	RTC->CR &= ~RTC_CR_ALRBE;
 	RTC->CR &= ~RTC_CR_ALRAIE;
-	RTC->CR &= ~RTC_CR_ALRBIE;
 	
-	while(((RTC->ISR & RTC_ISR_ALRAWF) == 0) && (((RTC->ISR & RTC_ISR_ALRBWF) >> 1) == 0));
+	while(((RTC->ISR & RTC_ISR_ALRAWF) == 0));
 	
-	RTC->ALRMAR |= (0x3 << 4);
+	RTC->ALRMAR &= ~RTC_ALRMAR_ST;
+	RTC->ALRMAR &= ~RTC_ALRMAR_SU;
+	RTC->ALRMAR |= (secondTens << 4) | (secondUnits);
 	RTC->ALRMAR |= RTC_ALRMAR_MSK4 | RTC_ALRMAR_MSK3 | RTC_ALRMAR_MSK2;
-	RTC->ALRMBR |= RTC_ALRMBR_MSK4 | RTC_ALRMBR_MSK3 | RTC_ALRMBR_MSK2 | RTC_ALRMBR_MSK1;
 	
 	RTC_Enable_Write_Protection();
-	
+
 }
 
 void RTC_Alarm_Enable(void) {
@@ -29,33 +36,27 @@ void RTC_Alarm_Enable(void) {
 
 void RTC_Alarm_IRQHandler(void) {
 	EXTI->PR1 |= EXTI_PR1_PIF18;
+	
+	isTimeoutComplete = 1;
+	
 	RTC->ISR &= ~RTC_ISR_ALRAF;
-	RTC->ISR &= ~RTC_ISR_ALRBF;
-	
-	//Green_LED_Toggle();
-	
+	Servo_Move_Right_90_Degree();
 }
 
-void DisableAlarmA_EnableAlarmB() {
+void DisableAlarmA() {
 	RTC_Disable_Write_Protection();
 	
 	RTC->CR &= ~RTC_CR_ALRAE;
 	RTC->CR &= ~RTC_CR_ALRAIE;
-	RTC->CR |= RTC_CR_ALRBE;
-	RTC->CR |= RTC_CR_ALRBIE;
 	
 	RTC_Enable_Write_Protection();
-	
 }
 
-void DisableAlarmB_EnableAlarmA() {
+void EnableAlarmA() {
 	RTC_Disable_Write_Protection();
 	
-	RTC->CR &= ~RTC_CR_ALRBE;
-	RTC->CR &= ~RTC_CR_ALRBIE;
 	RTC->CR |= RTC_CR_ALRAE;
 	RTC->CR |= RTC_CR_ALRAIE;
 	
 	RTC_Enable_Write_Protection();
-	
 }
