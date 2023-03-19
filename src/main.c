@@ -23,7 +23,7 @@ int main(void) {
 	System_Clock_Init(); // Switch System Clock = 80 MHz
 	RTC_Init();
 	RTC_Alarm_Enable();
-	Init_USARTx(2);
+	Init_USARTx(1);
 	SERVO_Pin_Init();
 	TIM5_CH1_Init();
 	SERVO_Init();
@@ -54,7 +54,7 @@ int main(void) {
 				RTC_Set_Alarm((timeoutSeconds + 15) % 60);
 				EnableAlarmA();
 
-				printf("\n\tACCESS GRANTED.\t---\tEntry logged at: %s on %s\n\n\n\n", strTime, strDate);
+				printf("\n\t*ACCESS GRANTED.\t---\tLogged at: %s on %s\n\n\n\n", strTime, strDate);
 				Servo_Move_Center();
 
 				while(!isTimeoutComplete);
@@ -63,7 +63,7 @@ int main(void) {
 			
 			else if (rxByte == 'N') {
 				Get_RTC_Calendar(strTime, strDate);
-				printf("\n\tACCESS DENIED.\t---\tEntry logged at: %s on %s\n\n\n\n", strTime, strDate);
+				printf("\n\t*ACCESS DENIED.\t---\tLogged at: %s on %s\n\n\n\n", strTime, strDate);
 			} 
 			
 			else {

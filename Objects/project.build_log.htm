@@ -27,6 +27,47 @@ Project File Date:  03/17/2023
 <h2>Output:</h2>
 *** Using Compiler 'V6.19', folder: 'C:\Keil_v5\ARM\ARMCLANG\Bin'
 Rebuild target 'Target 1'
+src/RTC.c(1): warning: In file included from...
+src/RTC.h(4): warning: In file included from...
+src/stm32l476xx.h(12): warning: invalid UTF-8 in comment [-Winvalid-utf8]
+  *           - Macros to access peripheral<92>s registers hardware
+                                           ^
+src/RTC.c(31): warning: no previous prototype for function 'RTC_BAK_SetRegister' [-Wmissing-prototypes]
+void RTC_BAK_SetRegister(uint32_t BackupRegister, uint32_t Data) {
+     ^
+src/RTC.c(31): note: declare 'static' if the function is not intended to be used outside of this translation unit
+void RTC_BAK_SetRegister(uint32_t BackupRegister, uint32_t Data) {
+^
+static 
+src/RTC.c(98): warning: mixing declarations and code is incompatible with standards before C99 [-Wdeclaration-after-statement]
+        uint32_t dayTens = Day / 10;
+                 ^
+src/RTC.c(114): warning: mixing declarations and code is incompatible with standards before C99 [-Wdeclaration-after-statement]
+        uint32_t hourTens = Hour / 10;
+                 ^
+4 warnings generated.
+compiling RTC.c...
+src/EXTI.c(1): warning: In file included from...
+src/EXTI.h(4): warning: In file included from...
+src/stm32l476xx.h(12): warning: invalid UTF-8 in comment [-Winvalid-utf8]
+  *           - Macros to access peripheral<92>s registers hardware
+                                           ^
+src/EXTI.c(26): warning: no previous prototype for function 'EXTI1_IRQHandler' [-Wmissing-prototypes]
+void EXTI1_IRQHandler(void) {
+     ^
+src/EXTI.c(26): note: declare 'static' if the function is not intended to be used outside of this translation unit
+void EXTI1_IRQHandler(void) {
+^
+static 
+2 warnings generated.
+compiling EXTI.c...
+src/SysClock.c(1): warning: In file included from...
+src/SysClock.h(4): warning: In file included from...
+src/stm32l476xx.h(12): warning: invalid UTF-8 in comment [-Winvalid-utf8]
+  *           - Macros to access peripheral<92>s registers hardware
+                                           ^
+1 warning generated.
+compiling SysClock.c...
 src/main.c(9): warning: In file included from...
 src/stm32l476xx.h(12): warning: invalid UTF-8 in comment [-Winvalid-utf8]
   *           - Macros to access peripheral<92>s registers hardware
@@ -71,7 +112,7 @@ void EnableAlarmA();
 src/rtcFunctionality.h(19): warning: no newline at end of file [-Wnewline-eof]
 #endif
       ^
-src/main.c(47): warning: mixing declarations and code is incompatible with standards before C99 [-Wdeclaration-after-statement]
+src/main.c(50): warning: mixing declarations and code is incompatible with standards before C99 [-Wdeclaration-after-statement]
                                 char timeoutSecondsStr[3];
                                      ^
 src/main.c(35): warning: mixing declarations and code is incompatible with standards before C99 [-Wdeclaration-after-statement]
@@ -79,118 +120,6 @@ src/main.c(35): warning: mixing declarations and code is incompatible with stand
              ^
 13 warnings generated.
 compiling main.c...
-src/servoFunctionality.c(1): warning: In file included from...
-src/servoFunctionality.h(4): warning: In file included from...
-src/stm32l476xx.h(12): warning: invalid UTF-8 in comment [-Winvalid-utf8]
-  *           - Macros to access peripheral<92>s registers hardware
-                                           ^
-src/servoFunctionality.c(1): warning: In file included from...
-src/servoFunctionality.h(6): warning: a function declaration without a prototype is deprecated in all versions of C [-Wstrict-prototypes]
-void SERVO_Pin_Init();
-                   ^
-                    void
-src/servoFunctionality.h(8): warning: a function declaration without a prototype is deprecated in all versions of C [-Wstrict-prototypes]
-void SERVO_Init();
-               ^
-                void
-src/servoFunctionality.h(10): warning: a function declaration without a prototype is deprecated in all versions of C [-Wstrict-prototypes]
-void TIM5_CH1_Init();
-                  ^
-                   void
-src/servoFunctionality.h(12): warning: a function declaration without a prototype is deprecated in all versions of C [-Wstrict-prototypes]
-void Servo_Move_Left_90_Degree();
-                              ^
-                               void
-src/servoFunctionality.h(14): warning: a function declaration without a prototype is deprecated in all versions of C [-Wstrict-prototypes]
-void Servo_Move_Center();
-                      ^
-                       void
-src/servoFunctionality.h(16): warning: a function declaration without a prototype is deprecated in all versions of C [-Wstrict-prototypes]
-void Servo_Move_Right_90_Degree();
-                               ^
-                                void
-src/servoFunctionality.h(18): warning: no newline at end of file [-Wnewline-eof]
-#endif
-      ^
-src/servoFunctionality.c(3): warning: a function declaration without a prototype is deprecated in all versions of C [-Wstrict-prototypes]
-void SERVO_Pin_Init(){
-                   ^
-                    void
-src/servoFunctionality.c(3): warning: no previous prototype for function 'SERVO_Pin_Init' [-Wmissing-prototypes]
-void SERVO_Pin_Init(){
-     ^
-src/servoFunctionality.h(6): note: this declaration is not a prototype; add 'void' to make it a prototype for a zero-parameter function
-void SERVO_Pin_Init();
-     ^
-                    void
-src/servoFunctionality.c(15): warning: a function declaration without a prototype is deprecated in all versions of C [-Wstrict-prototypes]
-void SERVO_Init() {
-               ^
-                void
-src/servoFunctionality.c(15): warning: no previous prototype for function 'SERVO_Init' [-Wmissing-prototypes]
-void SERVO_Init() {
-     ^
-src/servoFunctionality.h(8): note: this declaration is not a prototype; add 'void' to make it a prototype for a zero-parameter function
-void SERVO_Init();
-     ^
-                void
-src/servoFunctionality.c(24): warning: a function declaration without a prototype is deprecated in all versions of C [-Wstrict-prototypes]
-void TIM5_CH1_Init(){
-                  ^
-                   void
-src/servoFunctionality.c(24): warning: no previous prototype for function 'TIM5_CH1_Init' [-Wmissing-prototypes]
-void TIM5_CH1_Init(){
-     ^
-src/servoFunctionality.h(10): note: this declaration is not a prototype; add 'void' to make it a prototype for a zero-parameter function
-void TIM5_CH1_Init();
-     ^
-                   void
-src/servoFunctionality.c(43): warning: a function declaration without a prototype is deprecated in all versions of C [-Wstrict-prototypes]
-void Servo_Move_Left_90_Degree(){
-                              ^
-                               void
-src/servoFunctionality.c(43): warning: no previous prototype for function 'Servo_Move_Left_90_Degree' [-Wmissing-prototypes]
-void Servo_Move_Left_90_Degree(){
-     ^
-src/servoFunctionality.h(12): note: this declaration is not a prototype; add 'void' to make it a prototype for a zero-parameter function
-void Servo_Move_Left_90_Degree();
-     ^
-                               void
-src/servoFunctionality.c(48): warning: a function declaration without a prototype is deprecated in all versions of C [-Wstrict-prototypes]
-void Servo_Move_Center(){
-                      ^
-                       void
-src/servoFunctionality.c(48): warning: no previous prototype for function 'Servo_Move_Center' [-Wmissing-prototypes]
-void Servo_Move_Center(){
-     ^
-src/servoFunctionality.h(14): note: this declaration is not a prototype; add 'void' to make it a prototype for a zero-parameter function
-void Servo_Move_Center();
-     ^
-                       void
-src/servoFunctionality.c(53): warning: a function declaration without a prototype is deprecated in all versions of C [-Wstrict-prototypes]
-void Servo_Move_Right_90_Degree(){
-                               ^
-                                void
-src/servoFunctionality.c(56): warning: no newline at end of file [-Wnewline-eof]
-}
- ^
-src/servoFunctionality.c(53): warning: no previous prototype for function 'Servo_Move_Right_90_Degree' [-Wmissing-prototypes]
-void Servo_Move_Right_90_Degree(){
-     ^
-src/servoFunctionality.h(16): note: this declaration is not a prototype; add 'void' to make it a prototype for a zero-parameter function
-void Servo_Move_Right_90_Degree();
-     ^
-                                void
-21 warnings generated.
-compiling servoFunctionality.c...
-src/SysClock.c(1): warning: In file included from...
-src/SysClock.h(4): warning: In file included from...
-src/stm32l476xx.h(12): warning: invalid UTF-8 in comment [-Winvalid-utf8]
-  *           - Macros to access peripheral<92>s registers hardware
-                                           ^
-1 warning generated.
-compiling SysClock.c...
-assembling startup_stm32l476xx.s...
 src/rtcFunctionality.c(1): warning: In file included from...
 src/rtcFunctionality.h(4): warning: In file included from...
 src/stm32l476xx.h(12): warning: invalid UTF-8 in comment [-Winvalid-utf8]
@@ -269,40 +198,111 @@ void EnableAlarmA();
                   void
 18 warnings generated.
 compiling rtcFunctionality.c...
-src/EXTI.c(1): warning: In file included from...
-src/EXTI.h(4): warning: In file included from...
+src/servoFunctionality.c(1): warning: In file included from...
+src/servoFunctionality.h(4): warning: In file included from...
 src/stm32l476xx.h(12): warning: invalid UTF-8 in comment [-Winvalid-utf8]
   *           - Macros to access peripheral<92>s registers hardware
                                            ^
-src/EXTI.c(30): warning: no previous prototype for function 'EXTI1_IRQHandler' [-Wmissing-prototypes]
-void EXTI1_IRQHandler(void) {
+src/servoFunctionality.c(1): warning: In file included from...
+src/servoFunctionality.h(6): warning: a function declaration without a prototype is deprecated in all versions of C [-Wstrict-prototypes]
+void SERVO_Pin_Init();
+                   ^
+                    void
+src/servoFunctionality.h(8): warning: a function declaration without a prototype is deprecated in all versions of C [-Wstrict-prototypes]
+void SERVO_Init();
+               ^
+                void
+src/servoFunctionality.h(10): warning: a function declaration without a prototype is deprecated in all versions of C [-Wstrict-prototypes]
+void TIM5_CH1_Init();
+                  ^
+                   void
+src/servoFunctionality.h(12): warning: a function declaration without a prototype is deprecated in all versions of C [-Wstrict-prototypes]
+void Servo_Move_Left_90_Degree();
+                              ^
+                               void
+src/servoFunctionality.h(14): warning: a function declaration without a prototype is deprecated in all versions of C [-Wstrict-prototypes]
+void Servo_Move_Center();
+                      ^
+                       void
+src/servoFunctionality.h(16): warning: a function declaration without a prototype is deprecated in all versions of C [-Wstrict-prototypes]
+void Servo_Move_Right_90_Degree();
+                               ^
+                                void
+src/servoFunctionality.h(18): warning: no newline at end of file [-Wnewline-eof]
+#endif
+      ^
+src/servoFunctionality.c(3): warning: a function declaration without a prototype is deprecated in all versions of C [-Wstrict-prototypes]
+void SERVO_Pin_Init(){
+                   ^
+                    void
+src/servoFunctionality.c(3): warning: no previous prototype for function 'SERVO_Pin_Init' [-Wmissing-prototypes]
+void SERVO_Pin_Init(){
      ^
-src/EXTI.c(30): note: declare 'static' if the function is not intended to be used outside of this translation unit
-void EXTI1_IRQHandler(void) {
-^
-static 
-2 warnings generated.
-compiling EXTI.c...
-src/RTC.c(1): warning: In file included from...
-src/RTC.h(4): warning: In file included from...
-src/stm32l476xx.h(12): warning: invalid UTF-8 in comment [-Winvalid-utf8]
-  *           - Macros to access peripheral<92>s registers hardware
-                                           ^
-src/RTC.c(31): warning: no previous prototype for function 'RTC_BAK_SetRegister' [-Wmissing-prototypes]
-void RTC_BAK_SetRegister(uint32_t BackupRegister, uint32_t Data) {
+src/servoFunctionality.h(6): note: this declaration is not a prototype; add 'void' to make it a prototype for a zero-parameter function
+void SERVO_Pin_Init();
      ^
-src/RTC.c(31): note: declare 'static' if the function is not intended to be used outside of this translation unit
-void RTC_BAK_SetRegister(uint32_t BackupRegister, uint32_t Data) {
-^
-static 
-src/RTC.c(98): warning: mixing declarations and code is incompatible with standards before C99 [-Wdeclaration-after-statement]
-        uint32_t dayTens = Day / 10;
-                 ^
-src/RTC.c(114): warning: mixing declarations and code is incompatible with standards before C99 [-Wdeclaration-after-statement]
-        uint32_t hourTens = Hour / 10;
-                 ^
-4 warnings generated.
-compiling RTC.c...
+                    void
+src/servoFunctionality.c(15): warning: a function declaration without a prototype is deprecated in all versions of C [-Wstrict-prototypes]
+void SERVO_Init() {
+               ^
+                void
+src/servoFunctionality.c(15): warning: no previous prototype for function 'SERVO_Init' [-Wmissing-prototypes]
+void SERVO_Init() {
+     ^
+src/servoFunctionality.h(8): note: this declaration is not a prototype; add 'void' to make it a prototype for a zero-parameter function
+void SERVO_Init();
+     ^
+                void
+src/servoFunctionality.c(22): warning: a function declaration without a prototype is deprecated in all versions of C [-Wstrict-prototypes]
+void TIM5_CH1_Init(){
+                  ^
+                   void
+src/servoFunctionality.c(22): warning: no previous prototype for function 'TIM5_CH1_Init' [-Wmissing-prototypes]
+void TIM5_CH1_Init(){
+     ^
+src/servoFunctionality.h(10): note: this declaration is not a prototype; add 'void' to make it a prototype for a zero-parameter function
+void TIM5_CH1_Init();
+     ^
+                   void
+src/servoFunctionality.c(41): warning: a function declaration without a prototype is deprecated in all versions of C [-Wstrict-prototypes]
+void Servo_Move_Left_90_Degree(){
+                              ^
+                               void
+src/servoFunctionality.c(41): warning: no previous prototype for function 'Servo_Move_Left_90_Degree' [-Wmissing-prototypes]
+void Servo_Move_Left_90_Degree(){
+     ^
+src/servoFunctionality.h(12): note: this declaration is not a prototype; add 'void' to make it a prototype for a zero-parameter function
+void Servo_Move_Left_90_Degree();
+     ^
+                               void
+src/servoFunctionality.c(46): warning: a function declaration without a prototype is deprecated in all versions of C [-Wstrict-prototypes]
+void Servo_Move_Center(){
+                      ^
+                       void
+src/servoFunctionality.c(46): warning: no previous prototype for function 'Servo_Move_Center' [-Wmissing-prototypes]
+void Servo_Move_Center(){
+     ^
+src/servoFunctionality.h(14): note: this declaration is not a prototype; add 'void' to make it a prototype for a zero-parameter function
+void Servo_Move_Center();
+     ^
+                       void
+src/servoFunctionality.c(51): warning: a function declaration without a prototype is deprecated in all versions of C [-Wstrict-prototypes]
+void Servo_Move_Right_90_Degree(){
+                               ^
+                                void
+src/servoFunctionality.c(54): warning: no newline at end of file [-Wnewline-eof]
+}
+ ^
+src/servoFunctionality.c(51): warning: no previous prototype for function 'Servo_Move_Right_90_Degree' [-Wmissing-prototypes]
+void Servo_Move_Right_90_Degree(){
+     ^
+src/servoFunctionality.h(16): note: this declaration is not a prototype; add 'void' to make it a prototype for a zero-parameter function
+void Servo_Move_Right_90_Degree();
+     ^
+                                void
+21 warnings generated.
+compiling servoFunctionality.c...
+assembling startup_stm32l476xx.s...
 src/UART.c(1): warning: In file included from...
 src/UART.h(4): warning: In file included from...
 src/stm32l476xx.h(12): warning: invalid UTF-8 in comment [-Winvalid-utf8]
@@ -330,7 +330,7 @@ int fgetc(FILE *f) {
 3 warnings generated.
 compiling UART_printf.c...
 linking...
-Program Size: Code=19064 RO-data=1224 RW-data=0 ZI-data=1808  
+Program Size: Code=19064 RO-data=1216 RW-data=0 ZI-data=1808  
 FromELF: creating hex file...
 ".\Objects\project.axf" - 0 Error(s), 65 Warning(s).
 
